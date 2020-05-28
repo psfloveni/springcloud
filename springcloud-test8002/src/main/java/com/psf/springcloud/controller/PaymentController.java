@@ -54,4 +54,8 @@ public class PaymentController {
     public String getPaymentLB(){
         return serverPort;
     }
+    @GetMapping(value = "/payment/las")
+    public String getTEST(){
+        return serverPort;
+    }
 }
