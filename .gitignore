@@ -1,0 +1,7 @@
+# Project exclude paths
+/springcloud-api-commons/target/
+/springcloud-eureka-server7001/target/
+/springcloud-eureka-server7002/target/
+/springcloud-order80/target/
+/springcloud-test8001/target/
+/springcloud-test8002/target/

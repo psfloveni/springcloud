@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.psf.springcloud.dao.ChildrenDao">
+
+    <insert id="insert" parameterType="com.psf.springcloud.dao.ChildrenDao" useGeneratedKeys="true" keyProperty="id">
+        insert into children(name) values (#{name})
+    </insert>
+
+    <resultMap id="result" type="com.psf.springcloud.entity.Children">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+
+    </resultMap>
+    <select id="getById" parameterType="long" resultMap="result">
+        select * from children where id=#{id}
+
+    </select>
+</mapper>
