@@ -1,7 +1,8 @@
 package com.psf.springcloud.controller;
 
+import com.psf.springcloud.entity.CommonReslut;
 import com.psf.springcloud.entity.Payment;
-import com.psf.springcloud.entity.Reslt;
+import com.psf.springcloud.entity.CommonReslut;
 import com.psf.springcloud.lb.LoadBalanced;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
@@ -39,29 +40,29 @@ public class OrderController {
 
 
     @GetMapping(value = "/order/payment/insert")
-    public Reslt<Payment> insert(Payment payment) {
-        return restTemplate.postForObject(url + "/payment/insert", payment, Reslt.class);
+    public CommonReslut<Payment> insert(Payment payment) {
+        return restTemplate.postForObject(url + "/payment/insert", payment, CommonReslut.class);
     }
 
     @GetMapping(value = "/order/payment/getBySerial/{serial}")
-    public Reslt<Payment> getBySerial(@PathVariable("serial") String serial) {
-        return restTemplate.getForObject(url + "/payment/getBySerial/" + serial, Reslt.class);
+    public CommonReslut<Payment> getBySerial(@PathVariable("serial") String serial) {
+        return restTemplate.getForObject(url + "/payment/getBySerial/" + serial, CommonReslut.class);
     }
 
     @GetMapping(value = "/order/payment/getEntity/{serial}")
-    public Reslt<Payment> getEntity(@PathVariable("serial") String serial) {
+    public CommonReslut<Payment> getEntity(@PathVariable("serial") String serial) {
 
-        ResponseEntity<Reslt> forEntity = restTemplate.getForEntity(url + "/payment/getBySerial/" + serial, Reslt.class);
+        ResponseEntity<CommonReslut> forEntity = restTemplate.getForEntity(url + "/payment/getBySerial/" + serial, CommonReslut.class);
         if (forEntity.getStatusCode().is2xxSuccessful()) {
             return forEntity.getBody();
         } else {
-            return new Reslt(404, "失败");
+            return new CommonReslut(404, "失败");
         }
     }
 
     @PostMapping(value = "/order/payment/insertEntity")
-    public Reslt<Payment> insertEntity(Payment payment) {
-        Reslt body = restTemplate.postForEntity(url + "/payment/insert", payment, Reslt.class).getBody();
+    public CommonReslut<Payment> insertEntity(Payment payment) {
+        CommonReslut body = restTemplate.postForEntity(url + "/payment/insert", payment, CommonReslut.class).getBody();
         return body;
     }
 

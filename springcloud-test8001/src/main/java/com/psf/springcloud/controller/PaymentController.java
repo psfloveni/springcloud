@@ -1,7 +1,7 @@
 package com.psf.springcloud.controller;
 
 import com.psf.springcloud.entity.Payment;
-import com.psf.springcloud.entity.Reslt;
+import com.psf.springcloud.entity.CommonReslut;
 import com.psf.springcloud.service.impl.PaymentImplService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,26 +33,26 @@ public class PaymentController {
     private DiscoveryClient discoveryClient;
 
     @PostMapping(value = "/payment/insert")
-    public Reslt insert(@RequestBody Payment payment){
+    public CommonReslut insert(@RequestBody Payment payment){
 
         int insert = paymentImplService.insert(payment);
         if (insert>0){
-            return new Reslt(200,"添加成功,端口="+serverPort,insert);
+            return new CommonReslut(200,"添加成功,端口="+serverPort,insert);
         }
         else {
-            return new Reslt(404,"添加失败",insert);
+            return new CommonReslut(404,"添加失败",insert);
         }
     }
 
     @GetMapping(value = "/payment/getBySerial/{serial}")
-    public Reslt getBySerial(@PathVariable("serial") String serial){
+    public CommonReslut getBySerial(@PathVariable("serial") String serial){
 
         Payment payment = paymentImplService.getByPaySerial(serial);
         if (payment!= null){
-            return new Reslt(200,"查询成功,端口="+serverPort,payment);
+            return new CommonReslut(200,"查询成功,端口="+serverPort,payment);
         }
         else {
-            return new Reslt(404,"查询失败",null);
+            return new CommonReslut(404,"查询失败",null);
         }
     }
 

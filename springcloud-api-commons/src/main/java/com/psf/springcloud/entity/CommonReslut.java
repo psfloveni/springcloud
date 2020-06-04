@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Reslt<T> {
+public class CommonReslut<T> {
 
     private  Integer code;
     private String Message;
     private T  data;
 
-    public Reslt(Integer code, String message) {
+    public CommonReslut(Integer code, String message) {
         this(code,message,null);
     }
 
