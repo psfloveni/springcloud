@@ -17,6 +17,16 @@
       <module>springcloud-order-openFeign80</module>
       <module>springcloud-provider-hystrix-payment8001</module>
       <module>springcloud-order-feign-hystrix80</module>
+      <module>springcloud-hystrix-dashboard9001</module>
+      <module>springcloud-gateway-gateway9527</module>
+      <module>springcloud-config-server3001</module>
+      <module>springcloud-config-client3005</module>
+      <module>springcloud-config-client3006</module>
+    <module>springcloud-stream-provider8401</module>
+    <module>springcloud-stream-consumer8405</module>
+      <module>springcloud-stream-consumer8406</module>
+      <module>springcloud-sleuth-order80</module>
+    <module>springcloud-sleuth8001</module>
   </modules>
   <packaging>pom</packaging>
 
