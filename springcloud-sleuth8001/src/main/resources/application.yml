@@ -1,0 +1,24 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: springcloud-payment-service #服务名称
+  zipkin:
+    base-url: http://localhost:9411
+    sleuth:
+      sampler:
+      probability: 1
+eureka:
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: payment8001  #主机名
+    prefer-ip-address: true   #显示ip
+     #客户端向服务端发送心跳时间间隔，默认30秒
+    lease-renewal-interval-in-seconds:  1
+    #服务端收到最后一次时间上限，默认90秒，超过剔除服务
+    lease-expiration-duration-in-seconds:  2
+
